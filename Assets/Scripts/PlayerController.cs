@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject missilePrefab;
+    public Transform missileSpawn;
+
     float maxWidth;
     float maxHeight;
 
@@ -23,7 +26,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
+        }
+
         UpdatePosition();
+    }
+
+    void Fire()
+    {
+        Instantiate(missilePrefab, missileSpawn.position, Quaternion.identity);
     }
 
     void UpdatePosition()
