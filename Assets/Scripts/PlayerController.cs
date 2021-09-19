@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
         float playerWidth = GetComponent<Renderer>().bounds.extents.x;
         float playerHeight = GetComponent<Renderer>().bounds.extents.y;
 
-        maxWidth = targetWidth.x - playerWidth;
-        maxHeight = targetWidth.y - playerHeight;
+        maxWidth = targetWidth.x + playerWidth;
+        maxHeight = targetWidth.y + playerHeight;
     }
 
     // Update is called once per frame
