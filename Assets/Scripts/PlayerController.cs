@@ -51,4 +51,12 @@ public class PlayerController : MonoBehaviour
 
         transform.position = targetPosition;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Meteor"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

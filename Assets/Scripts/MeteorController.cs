@@ -5,7 +5,6 @@ using UnityEngine;
 public class MeteorController : MonoBehaviour
 {
     public float meteorSpeed;
-
     public float maxY;
 
     // Start is called before the first frame update
@@ -23,5 +22,13 @@ public class MeteorController : MonoBehaviour
         }
 
         transform.Translate(Vector3.down * meteorSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Missile") || other.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

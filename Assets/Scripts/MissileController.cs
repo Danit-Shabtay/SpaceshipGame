@@ -23,4 +23,12 @@ public class MissileController : MonoBehaviour
             transform.Translate(Vector3.up * Speed * Time.deltaTime);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Meteor"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
