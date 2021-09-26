@@ -8,3 +8,8 @@
 2D computer game using Unity.
 
 ---
+
+### Demo
+<img src="img/SpaceshipGameDemo.gif" width=300>
+
+---
