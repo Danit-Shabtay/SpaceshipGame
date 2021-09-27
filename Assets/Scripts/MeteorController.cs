@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MeteorController : MonoBehaviour
 {
+    public GameObject MeteorExplostionPrefab;
+
     public float meteorSpeed;
     public float maxY;
 
@@ -28,6 +30,8 @@ public class MeteorController : MonoBehaviour
     {
         if (other.CompareTag("Missile") || other.CompareTag("Player"))
         {
+            Instantiate(MeteorExplostionPrefab, transform.position, Quaternion.identity);
+
             Destroy(this.gameObject);
         }
     }
