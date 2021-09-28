@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float numBlinks;
+    public float blinkSedonds;
+
     public GameObject missilePrefab;
     public Transform missileSpawn;
 
@@ -56,7 +59,25 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Meteor"))
         {
-            Destroy(this.gameObject);
+            // Destroy(this.gameObject);
+            StartCoroutine(DestroyPlayer(numBlinks, blinkSedonds));
         }
+    }
+
+    IEnumerator DestroyPlayer(float numBlinks, float seconds)
+    {
+        Renderer renderer = GetComponent<Renderer>();
+        BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
+
+        boxCollider2D.enabled = false;
+
+        for(int i=0; i<numBlinks*2; i++)
+        {
+            renderer.enabled = !renderer.enabled;
+
+            yield return new WaitForSeconds(seconds);
+        }
+
+        boxCollider2D.enabled = true;
     }
 }
