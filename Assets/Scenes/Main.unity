@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4171e540574ad6a4086016c276631349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numBlinks: 4
+  blinkSedonds: 0.2
   missilePrefab: {fileID: 5153555904044848658, guid: e74ede863d88b6a4b8f1d92f99067814, type: 3}
   missileSpawn: {fileID: 1886768573}
 --- !u!212 &1122995590
