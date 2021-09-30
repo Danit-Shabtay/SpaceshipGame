@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int Lives;
+
     public float numBlinks;
     public float blinkSedonds;
 
@@ -59,12 +61,18 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Meteor"))
         {
-            // Destroy(this.gameObject);
-            StartCoroutine(DestroyPlayer(numBlinks, blinkSedonds));
+            DestroyPlayer();
         }
     }
 
-    IEnumerator DestroyPlayer(float numBlinks, float seconds)
+    void DestroyPlayer()
+    {
+        Lives--;
+        StartCoroutine(RespawnPlayer(numBlinks, blinkSedonds));
+
+    }
+
+    IEnumerator RespawnPlayer(float numBlinks, float seconds)
     {
         Renderer renderer = GetComponent<Renderer>();
         BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
