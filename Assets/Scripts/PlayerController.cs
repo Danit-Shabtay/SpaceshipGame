@@ -15,13 +15,9 @@ public class PlayerController : MonoBehaviour
     float maxWidth;
     float maxHeight;
 
-    AudioSource audioSource;
-
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
         Vector3 upperCorner = new Vector3(Screen.width, Screen.height, 0);
         Vector3 targetWidth = Camera.main.ScreenToViewportPoint(upperCorner);
 
@@ -46,7 +42,6 @@ public class PlayerController : MonoBehaviour
     void Fire()
     {
         Instantiate(missilePrefab, missileSpawn.position, Quaternion.identity);
-        audioSource.PlayOneShot(audioSource.clip);
     }
 
     void UpdatePosition()
